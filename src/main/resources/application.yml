@@ -1,1 +1,9 @@
-
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: ${CLIENT_ID:}
+            clientSecret: ${CLIENT_SECRET:}
+            redirectUri: 'http://localhost:8080/login/oauth2/code/google'
