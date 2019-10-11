@@ -8,11 +8,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 class SecurityConfig : WebSecurityConfigurerAdapter() {
-
     override fun configure(http: HttpSecurity?) {
         http!!.authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-                .oauth2Login();
+            .anyRequest().authenticated()
+            .and()
+            .oauth2Login();
     }
 }
