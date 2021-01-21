@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.run.BootRun
 
 plugins {
     id("org.springframework.boot") version "2.2.6.RELEASE"
@@ -46,4 +47,8 @@ tasks.withType<Test> {
     testLogging {
         events("passed", "skipped", "failed")
     }
+}
+
+tasks.getByName<BootRun>("bootRun") {
+    System.getProperties().forEach {key, value -> systemProperties["$key"] = value}
 }
